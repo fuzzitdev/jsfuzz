@@ -1,0 +1,57 @@
+{
+  "name": "@fuzzitdev/jsfuzz",
+  "version": "1.0.0",
+  "description": "Coverage Guided Javascript Fuzzer",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fuzzitdev/jsfuzz.git"
+  },
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@types/node": "^10.0.3",
+    "@types/yargs": "^13.0.3",
+    "gts": "^1.1.0",
+    "typescript": "~3.5.0"
+  },
+  "dependencies": {
+    "@types/escodegen": "^0.0.6",
+    "@types/esprima": "^4.0.2",
+    "@types/estraverse": "^0.0.6",
+    "@types/estree": "^0.0.39",
+    "escodegen": "^1.12.0",
+    "esprima": "^4.0.1",
+    "estraverse": "^4.3.0",
+    "inversify": "^5.0.1",
+    "nyc": "^14.1.1",
+    "pidusage": "^2.0.17",
+    "reflect-metadata": "^0.1.13",
+    "yargs": "^14.2.0"
+  },
+  "scripts": {
+    "check": "gts check",
+    "clean": "gts clean",
+    "compile": "tsc -p .",
+    "fix": "gts fix",
+    "prepare": "yarn run compile",
+    "pretest": "yarn run compile",
+    "posttest": "yarn run check"
+  },
+  "bugs": {
+    "url": "https://github.com/fuzzitdev/jsfuzz/issues"
+  },
+  "homepage": "https://github.com/fuzzitdev/jsfuzz#readme",
+  "directories": {
+    "example": "examples"
+  },
+  "keywords": [
+    "fuzzing",
+    "security",
+    "test",
+    "fuzzer"
+  ],
+  "author": "yevgenyp",
+  "bin": {
+    "jsfuzz": "./build/src/index.js"
+  }
+}
