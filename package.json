@@ -1,5 +1,5 @@
 {
-  "name": "@fuzzitdev/jsfuzz",
+  "name": "jsfuzz",
   "version": "1.0.0",
   "description": "Coverage Guided Javascript Fuzzer",
   "main": "index.js",
@@ -32,10 +32,11 @@
     "check": "gts check",
     "clean": "gts clean",
     "compile": "tsc -p .",
+    "build": "tsc",
     "fix": "gts fix",
-    "prepare": "yarn run compile",
-    "pretest": "yarn run compile",
-    "posttest": "yarn run check"
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run check"
   },
   "bugs": {
     "url": "https://github.com/fuzzitdev/jsfuzz/issues"
