@@ -127,6 +127,6 @@ any unnecessary work is done.
 
 
 ## Trophies
-
+* [jpeg-js: OOM/DoS](https://github.com/eugeneware/jpeg-js/issues/53) 
 
 **Feel free to add bugs that you found with jsfuzz to this list via pull-request**
