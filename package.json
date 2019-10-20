@@ -1,8 +1,9 @@
 {
   "name": "jsfuzz",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "Coverage Guided Javascript Fuzzer",
-  "main": "index.js",
+  "main": "build/src/index.js",
+  "types": "build/src/inde.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fuzzitdev/jsfuzz.git"

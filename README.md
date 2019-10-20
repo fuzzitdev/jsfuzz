@@ -69,7 +69,7 @@ module.exports = {
 The next step is to download js-fuzz and the your fuzzer
 
 ```bash
-npm i jsfuzz
+npm i -g jsfuzz
 jsfuzz ./examples/jpeg/fuzz.js corpus
 
 # Output:
