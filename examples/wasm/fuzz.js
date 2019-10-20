@@ -1,4 +1,3 @@
-const wasm = require("@webassemblyjs/wasm-parser");
 const wast = require("@webassemblyjs/wast-parser");
 
 const decoderOpts = {};

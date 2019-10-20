@@ -2,7 +2,7 @@ const htmlparser2 = require("htmlparser2");
 
 function fuzz(buf) {
     try {
-        pako.inflate(buf)
+        htmlparser2.parseDOM(buf)
         // console.log(image)
 
     } catch (e) {

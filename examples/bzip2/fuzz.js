@@ -7,7 +7,8 @@ async function fuzz(buf) {
 
     } catch (e) {
         //Those are "valid" exceptions. we can't catch them in one line as
-        if (e.message.indexOf('unknown header flags') !== -1) {
+        if (e.message.indexOf('unknown header flags') !== -1 ||
+            e.message.indexOf('bzip') !== -1 ) {
         } else {
             throw e;
         }
