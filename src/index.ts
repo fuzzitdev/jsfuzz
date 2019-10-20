@@ -8,7 +8,8 @@ function startFuzzer(argv: any) {
         argv.target,
         argv.dir,
         argv.exactArtifactPath,
-        argv.rssLimitMb);
+        argv.rssLimitMb,
+        argv.timeout);
     fuzzer.start()
 }
 
@@ -40,8 +41,8 @@ require('yargs')
     })
     .option('timeout', {
         type: 'number',
-        description: 'If input takes longer then this timeout the process is treated as failure case',
-        default: 1200,
+        description: 'If input takes longer then this timeout (in seconds) the process is treated as failure case',
+        default: 30,
     })
     .option('worker', {
         type: 'boolean',

@@ -111,7 +111,7 @@ export class Fuzzer {
                 this.total_coverage = m.coverage;
                 this.logStats('NEW');
                 this.corpus.putBuffer(buf)
-            } else if (diffOneSample > this.timeout) {
+            } else if ((diffOneSample/1000) > this.timeout) {
                     console.log("=================================================================");
                     console.log(`timeout reached. testcase took: ${diffOneSample}`);
                     this.worker.kill('SIGKILL');
@@ -156,6 +156,14 @@ export class Fuzzer {
                 this.clearIntervals();
                 console.log(`MEMORY OOM: exceeded ${this.rssLimitMb} MB. Killing worker`);
                 this.worker.kill('SIGKILL');
+            }
+
+            const diffOneSample = Date.now() - startTimeOneSample;
+            if ((diffOneSample/1000) > this.timeout) {
+                console.log("=================================================================");
+                console.log(`timeout reached. testcase took: ${diffOneSample}`);
+                this.worker.kill('SIGKILL');
+                return;
             }
         }, 3000);
 
