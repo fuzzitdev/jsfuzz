@@ -12,7 +12,7 @@ function fuzz(buf) {
             e.message.indexOf('Failed to') !== -1 ||
             e.message.indexOf('DecoderBuffer') !== -1 ||
             e.message.indexOf('invalid table spec') !== -1 ||
-            e.message.indexOf('SOI not found ) !== -1')) {
+            e.message.indexOf('SOI not found') !== -1) {
         } else {
             throw e;
         }
