@@ -1,0 +1,14 @@
+{
+  "name": "pako-fuzz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "fuzz.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pako": "^1.0.10"
+  }
+}

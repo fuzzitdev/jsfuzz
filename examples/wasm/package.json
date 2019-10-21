@@ -1,0 +1,14 @@
+{
+  "name": "wasm-fuzz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "fuzz.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@webassemblyjs/wast-parser": "^1.8.5"
+  }
+}

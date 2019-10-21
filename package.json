@@ -1,6 +1,6 @@
 {
   "name": "jsfuzz",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Coverage Guided Javascript Fuzzer",
   "main": "build/src/index.js",
   "types": "build/src/inde.d.ts",
