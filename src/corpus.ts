@@ -86,7 +86,7 @@ export class Corpus {
         buf.copy(res, 0, 0, buf.length);
         const nm = 1 + this.exp2();
         for (let i=0; i<nm; i++) {
-            const x = this.rand(14);
+            const x = this.rand(16);
             if ( x ===0 ) {
                 // Remove a range of bytes.
                 if (res.length <= 1) {
@@ -284,10 +284,12 @@ export class Corpus {
                     idx1++;
                 }
                 // If diffing parts are too small, there is no sense in splicing, rely on byte flipping.
-                const diff = Math.min(res.length-idx0-idx1, other.length-idx0-idx1)
+                const diff = Math.min(res.length-idx0-idx1, other.length-idx0-idx1);
                 if (diff < 4) {
                     i--;
+                    continue;
                 }
+
                 other.copy(res, idx0, idx0, Math.min(other.length, idx0+this.rand(diff-2)+1))
             } else if (x === 15) {
                 // Insert a part of another input.
