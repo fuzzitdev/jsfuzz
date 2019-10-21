@@ -31,7 +31,7 @@ Features of the fuzz target:
 * The fuzz target must call the test function/library with wither the passed buffer or a transformation on the test buffer 
 if the structure is different or from different type.
 * Fuzz functions can also implement application level checks to catch application/logical bugs - For example: 
-decode the buffer with the testable library encode it again and check that both results are equal. To communicate the results
+decode the buffer with the testable library, encode it again, and check that both results are equal. To communicate the results
 the result/bug the function should throw an exception.
 * jsfuzz will report any unhandled exceptions as crashes as well as inputs that hit the memory limit specified to jsfuzz
 or hangs/they run more the the specified timeout limit per testcase.
@@ -66,7 +66,7 @@ module.exports = {
 
 ### Running
 
-The next step is to download js-fuzz and the your fuzzer
+The next step is to download js-fuzz and then run your fuzzer
 
 ```bash
 npm i -g jsfuzz
@@ -121,7 +121,7 @@ For coverage jsfuzz is using [istanbuljs](https://istanbul.js.org) instrumentati
 
 ## Contributions
 
-Contributions are welcome!:) There are still a lot of things to improve,test and features to add. We will slowly post those in the
+Contributions are welcome!:) There are still a lot of things to improve, and tests and features to add. We will slowly post those in the
 issues section. Before doing any major contribution please open an issue so we can discuss and help guide the process before
 any unnecessary work is done.
 
