@@ -118,7 +118,7 @@ Currently this library is also ported to python via [pythonfuzz](https://github.
 jsfuzz logic is heavily based on [go-fuzz](https://github.com/dvyukov/go-fuzz) originally developed by [Dmitry Vyukov's](https://twitter.com/dvyukov).
 Which is in turn heavily based on [Michal Zalewski](https://twitter.com/lcamtuf) [AFL](http://lcamtuf.coredump.cx/afl/).
 
-A previous take on that was done by [https://github.com/connor4312/js-fuzz] with a bit different design, coverage and
+A previous take on that was done by https://github.com/connor4312/js-fuzz with a bit different design, coverage and
 interface but it looks like it is currently unmaintained.
 
 For coverage jsfuzz is using [istanbuljs](https://istanbul.js.org) instrumentation and coverage library. 
