@@ -109,6 +109,10 @@ jsfuzz tries to mimic some of the arguments and output style from [libFuzzer](ht
 More fuzz targets examples (for real and popular libraries) are located under the examples directory and
 bugs that were found using those targets are listed in the trophies section.
 
+## Other languages
+
+Currently this library is also ported to python via [pythonfuzz](https://github.com/fuzzitdev/jsfuzz)
+
 ## Credits & Acknowledgments
 
 jsfuzz logic is heavily based on [go-fuzz](https://github.com/dvyukov/go-fuzz) originally developed by [Dmitry Vyukov's](https://twitter.com/dvyukov).
@@ -118,6 +122,7 @@ A previous take on that was done by [https://github.com/connor4312/js-fuzz] with
 interface but it looks like it is currently unmaintained.
 
 For coverage jsfuzz is using [istanbuljs](https://istanbul.js.org) instrumentation and coverage library. 
+
 
 ## Contributions
 
