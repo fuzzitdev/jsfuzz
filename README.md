@@ -135,6 +135,7 @@ any unnecessary work is done.
 * [jpeg-js: OOM/DoS](https://github.com/eugeneware/jpeg-js/issues/53)
 * [@webassemblyjs/wast-parser: Crash/TypeError](https://github.com/xtuc/webassemblyjs/issues/669)
 * [decompress: Crash/TypeError ](https://github.com/kevva/decompress/issues/72)
-* [qs: logic bug/inequality](https://github.com/ljharb/qs/issues/340) 
+* [qs: logic bug/inequality](https://github.com/ljharb/qs/issues/340)
+* [js-yaml: Crash/TypeError](https://github.com/nodeca/js-yaml/issues/524)
 
 **Feel free to add bugs that you found with jsfuzz to this list via pull-request**
