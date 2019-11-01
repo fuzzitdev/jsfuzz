@@ -3,13 +3,14 @@ import {Fuzzer} from './fuzzer';
 import yargs from 'yargs';
 
 function startFuzzer(argv: any) {
-    // @ts-ignore
     const fuzzer = new Fuzzer(
         argv.target,
         argv.dir,
         argv.exactArtifactPath,
         argv.rssLimitMb,
-        argv.timeout);
+        argv.timeout,
+        argv.regression,
+        argv.versifier);
     fuzzer.start()
 }
 
@@ -49,6 +50,11 @@ require('yargs')
         description: 'run fuzzing worker',
         default: false,
         hidden: true
+    })
+    .option('versifier', {
+        type: 'boolean',
+        description: 'use versifier algorithm (good for text based protocols)',
+        default: true,
     })
     .help()
     .argv;

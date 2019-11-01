@@ -1,6 +1,6 @@
 {
   "name": "jsfuzz",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Coverage Guided Javascript Fuzzer",
   "main": "build/src/index.js",
   "types": "build/src/inde.d.ts",
@@ -20,6 +20,7 @@
     "@types/esprima": "^4.0.2",
     "@types/estraverse": "^0.0.6",
     "@types/estree": "^0.0.39",
+    "deep-equal": "^1.1.0",
     "escodegen": "^1.12.0",
     "esprima": "^4.0.1",
     "estraverse": "^4.3.0",

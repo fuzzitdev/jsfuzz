@@ -3,6 +3,7 @@ import {Corpus} from "./corpus";
 import * as fs from "fs";
 import {ChildProcess, fork} from "child_process";
 import {ManageMessageType, WorkerMessage, WorkerMessageType} from "./protocol";
+import {BuildVerse, Verse} from "./versifier";
 
 const crypto = require('crypto');
 const util = require('util');
@@ -26,15 +27,20 @@ export class Fuzzer {
     private lastSampleTime: number;
     private executionsInSample: number;
     private regression: boolean;
+    private verse: Verse | null;
+    private readonly versifier: boolean;
 
     constructor(target: string,
                 dir: string[],
                 exactArtifactPath: string,
                 rssLimitMb: number,
                 timeout: number,
-                regression: boolean) {
+                regression: boolean,
+                versifier: boolean) {
         this.target = target;
         this.corpus = new Corpus(dir);
+        this.versifier = versifier;
+        this.verse = null;
         this.total_executions = 0;
         this.total_coverage = 0;
         this.exactArtifactPath = exactArtifactPath;
@@ -110,14 +116,22 @@ export class Fuzzer {
             } else if (m.coverage > this.total_coverage) {
                 this.total_coverage = m.coverage;
                 this.logStats('NEW');
-                this.corpus.putBuffer(buf)
+                this.corpus.putBuffer(buf);
+                if (buf.length > 0 && this.versifier) {
+                    this.verse = BuildVerse(this.verse, buf);
+                }
             } else if ((diffOneSample/1000) > this.timeout) {
                     console.log("=================================================================");
                     console.log(`timeout reached. testcase took: ${diffOneSample}`);
                     this.worker.kill('SIGKILL');
                     return;
             }
-            buf = this.corpus.generateInput();
+            if (this.total_executions % 10 != 0 || this.verse === null || !this.versifier) {
+                buf = this.corpus.generateInput();
+            } else {
+                buf = this.verse.Rhyme();
+            }
+
             this.worker.send({
                 type: ManageMessageType.WORK,
                 buf: buf

@@ -28,7 +28,7 @@ Features of the fuzz target:
 
 * Jsfuzz will call the fuzz target in an infinite loop with random data (according to the coverage guided algorithm) passed to `buf`( in a separate process).
 * The function must catch and ignore any expected exceptions that arise when passing invalid input to the tested package.
-* The fuzz target must call the test function/library with wither the passed buffer or a transformation on the test buffer 
+* The fuzz target must call the test function/library with with the passed buffer or a transformation on the test buffer 
 if the structure is different or from different type.
 * Fuzz functions can also implement application level checks to catch application/logical bugs - For example: 
 decode the buffer with the testable library, encode it again, and check that both results are equal. To communicate the results
