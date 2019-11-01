@@ -52,7 +52,7 @@ function fuzz(buf) {
             e.message.indexOf('Failed to') !== -1 ||
             e.message.indexOf('DecoderBuffer') !== -1 ||
             e.message.indexOf('invalid table spec') !== -1 ||
-            e.message.indexOf('SOI not found1) !== -1) {
+            e.message.indexOf('SOI not found') !== -1) {
         } else {
             throw e;
         }
@@ -109,15 +109,20 @@ jsfuzz tries to mimic some of the arguments and output style from [libFuzzer](ht
 More fuzz targets examples (for real and popular libraries) are located under the examples directory and
 bugs that were found using those targets are listed in the trophies section.
 
+## Other languages
+
+Currently this library is also ported to python via [pythonfuzz](https://github.com/fuzzitdev/jsfuzz)
+
 ## Credits & Acknowledgments
 
 jsfuzz logic is heavily based on [go-fuzz](https://github.com/dvyukov/go-fuzz) originally developed by [Dmitry Vyukov's](https://twitter.com/dvyukov).
 Which is in turn heavily based on [Michal Zalewski](https://twitter.com/lcamtuf) [AFL](http://lcamtuf.coredump.cx/afl/).
 
-A previous take on that was done by [https://github.com/connor4312/js-fuzz] with a bit different design, coverage and
+A previous take on that was done by https://github.com/connor4312/js-fuzz with a bit different design, coverage and
 interface but it looks like it is currently unmaintained.
 
 For coverage jsfuzz is using [istanbuljs](https://istanbul.js.org) instrumentation and coverage library. 
+
 
 ## Contributions
 
