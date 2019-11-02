@@ -68,8 +68,23 @@ export class Corpus {
         return Math.floor(Math.random() * Math.floor(n));
     }
 
-    exp2() {
-        return Math.round(Math.log2(this.rand(2**32)));
+    dec2bin(dec: number){
+        const bin = dec.toString(2);
+        return '0'.repeat(32 - bin.length) + bin;
+    }
+
+    // Exp2 generates n with probability 1/2^(n+1).
+    Exp2() {
+        const bin = this.dec2bin(this.rand(2**32));
+        let count = 0;
+        for (let i=0; i<32; i++) {
+            if(bin[i] === '0') {
+                count += 1;
+            } else {
+                break;
+            }
+        }
+        return count;
     }
 
     chooseLen(n: number) {
@@ -86,8 +101,7 @@ export class Corpus {
     mutate(buf: Buffer) {
         let res = Buffer.allocUnsafe(buf.length);
         buf.copy(res, 0, 0, buf.length);
-        // const nm = 1 + this.exp2();
-        const nm = 1 + this.rand(32);
+        const nm = 1 + this.Exp2();
         for (let i=0; i<nm; i++) {
             const x = this.rand(16);
             if ( x ===0 ) {
