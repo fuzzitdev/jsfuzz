@@ -138,5 +138,6 @@ any unnecessary work is done.
 * [qs: logic bug/inequality](https://github.com/ljharb/qs/issues/340)
 * [js-yaml: Crash/TypeError](https://github.com/nodeca/js-yaml/issues/524)
 * [js-yaml: Crash/TypeError](https://github.com/nodeca/js-yaml/issues/525)
+* [asciidoctor: Hang/DoS](https://github.com/asciidoctor/asciidoctor/issues/3472)
 
 **Feel free to add bugs that you found with jsfuzz to this list via pull-request**
