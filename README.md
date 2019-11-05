@@ -1,6 +1,4 @@
 # Jsfuzz: coverage-guided fuzz testing for Javascript
-[![Join the chat at https://slack.fuzzit.dev](https://app.fuzzit.dev/static/slack-join.svg)](https://slack.fuzzit.dev)
-
 
 Jsfuzz is coverage-guided [fuzzer](https://developer.mozilla.org/en-US/docs/Glossary/Fuzzing) for testing javascript/nodejs packages.
 
