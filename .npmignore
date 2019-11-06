@@ -4,3 +4,5 @@ build
 crash-*
 corpus/*
 examples/
+coverage
+.nyc_output
