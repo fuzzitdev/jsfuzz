@@ -3,3 +3,6 @@ node_modules
 build
 crash-*
 corpus/*
+coverage
+.nyc_output
+

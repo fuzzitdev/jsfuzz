@@ -109,6 +109,16 @@ jsfuzz tries to mimic some of the arguments and output style from [libFuzzer](ht
 More fuzz targets examples (for real and popular libraries) are located under the examples directory and
 bugs that were found using those targets are listed in the trophies section.
 
+### Coverage
+
+Coverage in Istanbul/NYC format is written to .nyc_output/out.json It can be viewer with `nyc` cli. For example:
+
+```bash
+nyc report --reporter=html --exclude-node-modules=false
+```
+
+This will save the html report to `coverage` directory
+
 ## Other languages
 
 Currently this library is also ported to python via [pythonfuzz](https://github.com/fuzzitdev/jsfuzz)

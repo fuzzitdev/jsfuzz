@@ -8,6 +8,10 @@ import {BuildVerse, Verse} from "./versifier";
 const crypto = require('crypto');
 const util = require('util');
 const pidusage = require('pidusage');
+process.on('SIGINT', function() {
+    // ignore sigint as this propagates to worker as well.
+    console.log('Received SIGINT. shutting down gracefully');
+});
 
 
 export class Fuzzer {
@@ -144,10 +148,11 @@ export class Fuzzer {
         });
 
         this.worker.on('exit', (code, signal) => {
-            if (signal) {
+            if (signal && code !== 0) {
                 console.log('Worker killed');
                 this.writeCrash(buf);
             }
+            console.log('Worker exited');
             this.clearIntervals();
         });
 
