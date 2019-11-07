@@ -1,0 +1,9 @@
+{
+    "name": "xml2js-fuzz",
+    "version": "1.0.0",
+    "main": "fuzz.js",
+    "license": "ISC",
+    "dependencies": {
+        "xml2js": "^0.4.22"
+    }
+}
