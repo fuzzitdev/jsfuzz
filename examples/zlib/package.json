@@ -1,0 +1,9 @@
+{
+    "name": "zlib-fuzz",
+    "version": "1.0.0",
+    "main": "fuzz.js",
+    "license": "ISC",
+    "dependencies": {
+        "pako": "^1.0.10"
+    }
+}
