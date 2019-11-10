@@ -4,8 +4,8 @@ import {uint16, uint32} from "./math";
 var crypto = require('crypto');
 
 const INTERESTING8 = new Uint8Array([-128, -1, 0, 1, 16, 32, 64, 100, 127]);
-const INTERESTING16 = new Uint16Array([-32768, -129, 128, 255, 256, 512, 1000, 1024, 4096, 32767]);
-const INTERESTING32 = new Uint32Array([-2147483648, -100663046, -32769, 32768, 65535, 65536, 100663045, 2147483647]);
+const INTERESTING16 = new Uint16Array([-32768, -129, 128, 255, 256, 512, 1000, 1024, 4096, 32767, -128, -1, 0, 1, 16, 32, 64, 100, 127]);
+const INTERESTING32 = new Uint32Array([-2147483648, -100663046, -32769, 32768, 65535, 65536, 100663045, 2147483647, -32768, -129, 128, 255, 256, 512, 1000, 1024, 4096, 32767]);
 
 
 export class Corpus {
@@ -13,11 +13,15 @@ export class Corpus {
     private seedPath: string | undefined;
     private corpusPath: string | undefined;
     private maxInputSize: number;
+    private seedLength: number;
 
     constructor(dir: string[]) {
         this.inputs = [];
         this.maxInputSize = 4096;
         for (let i of dir) {
+            if (!fs.existsSync(i)) {
+                fs.mkdirSync(i);
+            }
             if (fs.lstatSync(i).isDirectory()) {
                 if (!this.corpusPath) {
                     this.corpusPath = i;
@@ -27,6 +31,7 @@ export class Corpus {
                 this.inputs.push(fs.readFileSync(i));
             }
         }
+        this.seedLength = this.inputs.length;
 
     }
 
@@ -42,8 +47,12 @@ export class Corpus {
     }
 
     generateInput() {
+        if (this.seedLength > 0) {
+            this.seedLength -= 1;
+            return this.inputs[this.seedLength];
+        }
         if (this.inputs.length === 0) {
-            const buf = Buffer.alloc(0, 0)
+            const buf = Buffer.alloc(0, 0);
             this.putBuffer(buf);
             return buf;
         }

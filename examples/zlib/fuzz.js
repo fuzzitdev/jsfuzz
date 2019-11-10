@@ -30,7 +30,8 @@ const expected = [
   'incorrect data check',
   'invalid literal/length code',
   'invalid bit length repeat',
-  'invalid code'
-]
+  'invalid code',
+  'invalid literal'
+];
 
-exports.fuzz = fuzz
+exports.fuzz = fuzz;
