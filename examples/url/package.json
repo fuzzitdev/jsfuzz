@@ -1,0 +1,6 @@
+{
+    "name": "url-fuzz",
+    "version": "1.0.0",
+    "main": "fuzz.js",
+    "license": "ISC"
+}
