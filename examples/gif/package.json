@@ -1,0 +1,9 @@
+{
+    "name": "gif-fuzz",
+    "version": "1.0.0",
+    "main": "fuzz.js",
+    "license": "ISC",
+    "dependencies": {
+        "omggif": "^1.0.10"
+    }
+}
