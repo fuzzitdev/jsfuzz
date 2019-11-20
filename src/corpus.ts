@@ -14,9 +14,11 @@ export class Corpus {
     private corpusPath: string | undefined;
     private maxInputSize: number;
     private seedLength: number;
+    private readonly onlyAscii: boolean;
 
-    constructor(dir: string[]) {
+    constructor(dir: string[], onlyAscii: boolean) {
         this.inputs = [];
+        this.onlyAscii = onlyAscii;
         this.maxInputSize = 4096;
         for (let i of dir) {
             if (!fs.existsSync(i)) {
@@ -104,6 +106,16 @@ export class Corpus {
             return this.rand(Math.min(32, n)) + 1
         } else {
             return this.rand(n) + 1;
+        }
+    }
+
+    toAscii(buf: Buffer) {
+        let x;
+        for (let i = 0; i < buf.length; i++) {
+            x = buf[i] & 127;
+            if ((x < 0x20 || x > 0x7E) && x !== 0x09 && (x < 0xA || x > 0xD)) {
+                buf[i] = 0x20;
+            }
         }
     }
 
@@ -342,6 +354,11 @@ export class Corpus {
         if (res.length > this.maxInputSize) {
             res = res.slice(0, this.maxInputSize)
         }
+
+        if (this.onlyAscii) {
+            this.toAscii(res);
+        }
+
         return res;
     }
 }
