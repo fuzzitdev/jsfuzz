@@ -148,5 +148,6 @@ any unnecessary work is done.
 * [js-yaml: Crash/TypeError](https://github.com/nodeca/js-yaml/issues/525)
 * [asciidoctor: Hang/DoS](https://github.com/asciidoctor/asciidoctor/issues/3472)
 * [deanm/omggif: Crash/TypeError](https://github.com/deanm/omggif/issues/41)
+* [Leonidas-from-XIV/node-xml2js: Crash/TypeError](https://github.com/Leonidas-from-XIV/node-xml2js/issues/544)
 
 **Feel free to add bugs that you found with jsfuzz to this list via pull-request**

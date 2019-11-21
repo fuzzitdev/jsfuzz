@@ -33,6 +33,7 @@ export class Fuzzer {
     private regression: boolean;
     private verse: Verse | null;
     private readonly versifier: boolean;
+    private readonly onlyAscii: boolean;
 
     constructor(target: string,
                 dir: string[],
@@ -40,9 +41,11 @@ export class Fuzzer {
                 rssLimitMb: number,
                 timeout: number,
                 regression: boolean,
+                onlyAscii: boolean,
                 versifier: boolean) {
         this.target = target;
-        this.corpus = new Corpus(dir);
+        this.corpus = new Corpus(dir, onlyAscii);
+        this.onlyAscii = onlyAscii;
         this.versifier = versifier;
         this.verse = null;
         this.total_executions = 0;
