@@ -1,4 +1,4 @@
-const xml2js = require('xml2js')
+const xml2js = require('xml2js');
 
 async function fuzz (bytes) {
   const string = String.fromCodePoint(...bytes)

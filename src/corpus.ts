@@ -5,12 +5,11 @@ var crypto = require('crypto');
 
 const INTERESTING8 = new Uint8Array([-128, -1, 0, 1, 16, 32, 64, 100, 127]);
 const INTERESTING16 = new Uint16Array([-32768, -129, 128, 255, 256, 512, 1000, 1024, 4096, 32767, -128, -1, 0, 1, 16, 32, 64, 100, 127]);
-const INTERESTING32 = new Uint32Array([-2147483648, -100663046, -32769, 32768, 65535, 65536, 100663045, 2147483647, -32768, -129, 128, 255, 256, 512, 1000, 1024, 4096, 32767]);
+const INTERESTING32 = new Uint32Array([-2147483648, -100663046, -32769, 32768, 65535, 65536, 100663045, 2147483647, -32768, -129, 128, 255, 256, 512, 1000, 1024, 4096, 32767, -128, -1, 0, 1, 16, 32, 64, 100, 127]);
 
 
 export class Corpus {
     private inputs: Buffer[];
-    private seedPath: string | undefined;
     private corpusPath: string | undefined;
     private maxInputSize: number;
     private seedLength: number;
@@ -295,7 +294,7 @@ export class Corpus {
                     i--;
                     continue;
                 }
-                const other = this.inputs[this.rand(this.inputs.length)]
+                const other = this.inputs[this.rand(this.inputs.length)];
                 if (other.length < 4) {
                     i--;
                     continue;
@@ -331,7 +330,7 @@ export class Corpus {
                 const pos0 = this.rand(res.length+1);
                 const pos1 = this.rand(other.length-2);
                 const n = this.chooseLen(other.length-pos1-2) + 2;
-                res = Buffer.concat([res, Buffer.alloc(n, 0)], res.length + n)
+                res = Buffer.concat([res, Buffer.alloc(n, 0)], res.length + n);
                 res.copy(res, pos0+n, pos0);
                 for (let k=0; k<n; k++) {
                     res[pos0+k] = other[pos1+k]

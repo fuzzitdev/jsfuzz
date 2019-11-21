@@ -119,8 +119,8 @@ export class Fuzzer {
                 return;
             } else if (m.coverage > this.total_coverage) {
                 this.total_coverage = m.coverage;
-                this.logStats('NEW');
                 this.corpus.putBuffer(buf);
+                this.logStats('NEW');
                 if (buf.length > 0 && this.versifier) {
                     this.verse = BuildVerse(this.verse, buf);
                 }
@@ -162,9 +162,6 @@ export class Fuzzer {
         });
 
         this.pulseInterval = setInterval(() => {
-            // @ts-ignore
-            const diff = Date.now() - this.startTime;
-            const execs_per_sec = Math.trunc(executions/diff*1000);
             this.logStats("PULSE");
         }, 3000);
 

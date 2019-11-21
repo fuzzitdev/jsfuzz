@@ -119,7 +119,7 @@ This will save the html report to `coverage` directory
 
 ## Other languages
 
-Currently this library is also ported to python via [pythonfuzz](https://github.com/fuzzitdev/jsfuzz)
+Currently this library is also ported to python via [pythonfuzz](https://github.com/fuzzitdev/pythonfuzz)
 
 ## Credits & Acknowledgments
 
