@@ -10,6 +10,7 @@ function startFuzzer(argv: any) {
         argv.rssLimitMb,
         argv.timeout,
         argv.regression,
+        argv.onlyAscii,
         argv.versifier);
     fuzzer.start()
 }
@@ -55,6 +56,11 @@ require('yargs')
         type: 'boolean',
         description: 'use versifier algorithm (good for text based protocols)',
         default: true,
+    })
+    .option('only-ascii', {
+        type: 'boolean',
+        description: 'generate only ASCII (isprint+isspace) inputs',
+        default: false,
     })
     .help()
     .argv;
