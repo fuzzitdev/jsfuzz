@@ -19,22 +19,15 @@ class Worker {
 
     getTotalCoverage() {
         let total = 0;
-        // @ts-ignore
-        for (const filePath in global["__coverage__"]) {
-            // @ts-ignore
-            for (const s in global["__coverage__"][filePath]['s']) {
-                // @ts-ignore
-                total += global["__coverage__"][filePath]['s'][s] ? 1 : 0;
+        for (const filePath in global.__coverage__) {
+            for (const s in global.__coverage__[filePath].s) {
+                total += global.__coverage__[filePath].s[s] ? 1 : 0;
             }
-            // @ts-ignore
-            for (const f in global["__coverage__"][filePath]['f']) {
-                // @ts-ignore
-                total += global["__coverage__"][filePath]['f'][f] ? 1 : 0;
+            for (const f in global.__coverage__[filePath].f) {
+                total += global.__coverage__[filePath].f[f] ? 1 : 0;
             }
-            // @ts-ignore
-            for (const b in global["__coverage__"][filePath]['b']) {
-                // @ts-ignore
-                for (const i of global["__coverage__"][filePath]['b'][b]) {
+            for (const b in global.__coverage__[filePath].b) {
+                for (const i of global.__coverage__[filePath].b[b]) {
                     total += i ? 1 : 0;
                 }
             }
@@ -44,8 +37,7 @@ class Worker {
     }
 
     dump_coverage() {
-        // @ts-ignore
-        const data = JSON.stringify(global["__coverage__"]);
+        const data = JSON.stringify(global.__coverage__);
         if (!fs.existsSync('./.nyc_output')){
             fs.mkdirSync('./.nyc_output');
         }
