@@ -149,5 +149,6 @@ any unnecessary work is done.
 * [asciidoctor: Hang/DoS](https://github.com/asciidoctor/asciidoctor/issues/3472)
 * [deanm/omggif: Crash/TypeError](https://github.com/deanm/omggif/issues/41)
 * [Leonidas-from-XIV/node-xml2js: Crash/TypeError](https://github.com/Leonidas-from-XIV/node-xml2js/issues/544)
+* [xtuc/webassemblyjs: OOM](https://github.com/xtuc/webassemblyjs/issues/718)
 
 **Feel free to add bugs that you found with jsfuzz to this list via pull-request**
