@@ -63,7 +63,7 @@ export class Fuzzer {
         this.pulseInterval = null;
         this.lastSampleTime = Date.now();
         this.executionsInSample = 0;
-		this.lastNEWTime = Date.now();
+	this.lastNEWTime = Date.now();
     }
 
     logStats(type: string) {
