@@ -34,7 +34,7 @@ export class Fuzzer {
     private verse: Verse | null;
     private readonly versifier: boolean;
     private readonly onlyAscii: boolean;
-	private lastNEWTime: number;
+    private lastNEWTime: number;
 
     constructor(target: string,
                 dir: string[],
