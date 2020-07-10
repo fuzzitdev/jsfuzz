@@ -34,6 +34,7 @@ export class Fuzzer {
     private verse: Verse | null;
     private readonly versifier: boolean;
     private readonly onlyAscii: boolean;
+    private lastNEWTime: number;
 
     constructor(target: string,
                 dir: string[],
@@ -62,6 +63,7 @@ export class Fuzzer {
         this.pulseInterval = null;
         this.lastSampleTime = Date.now();
         this.executionsInSample = 0;
+	this.lastNEWTime = Date.now();
     }
 
     logStats(type: string) {
@@ -71,8 +73,11 @@ export class Fuzzer {
         const execs_per_second = Math.trunc(this.executionsInSample / (endTime - this.lastSampleTime) * 1000);
         this.lastSampleTime = Date.now();
         this.executionsInSample = 0;
+	const secs = Math.trunc((endTime - this.lastNEWTime) / 1000);
+	const mins = Math.trunc( secs / 60  );
+        const hours = Math.trunc( mins / 60  );
 
-        console.log(`#${this.total_executions} ${type}     cov: ${this.total_coverage} corp: ${this.corpus.getLength()} exec/s: ${execs_per_second} rss: ${rss} MB`);
+        console.log(`#${this.total_executions} ${type}  LastNEW: ${hours}:${mins % 60}:${secs % 60}    cov: ${this.total_coverage} corp: ${this.corpus.getLength()} exec/s: ${execs_per_second} rss: ${rss} MB`);
     }
 
     writeCrash(buf: Buffer) {
@@ -124,6 +129,7 @@ export class Fuzzer {
                 this.total_coverage = m.coverage;
                 this.corpus.putBuffer(buf);
                 this.logStats('NEW');
+				this.lastNEWTime = Date.now();
                 if (buf.length > 0 && this.versifier) {
                     this.verse = BuildVerse(this.verse, buf);
                 }
